@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3ffd3;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0000ff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section-header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            margin: 0;
+
+            font-size: 18px;
+        }
+        .required {
+            color: red;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input,
+        select,
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .confirmation {
+            color: #006400;
+            font-weight: bold;
+            display: none;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+        #previewSection {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Feedback Form</h1>
+    <form id="feedbackForm">
+
+        <div class="section-header">
+            <h2 class="section-title">Contact Information</h2>
+        </div>
+        <fieldset>
+            <label for="name">Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email">
+        </fieldset>
+
+        <div class="section-header">
+            <h2 class="section-title">Website Feedback</h2>
+        </div>
+        <fieldset>
+            <label>Was this website easy to navigate? <span
+class="required">*</span></label>
+            <select name="navigation" id="navigation" required>
+                <option value="">Please select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>How satisfied are you with our website? (0-10) <span
+class="required">*</span></label>
+            <input type="number" name="satisfaction" id="satisfaction" min="0"
+max="10" required>
+
+            <label>Was this your first time visiting? <span
+class="required">*</span></label>
+            <select name="firstTime" id="firstTime" required>
+                <option value="">Please select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>What do you think we can improve or add onto our
+website?</label>
+            <textarea name="improvements" id="improvements"
+rows="4"></textarea>
+
+            <label>Did you encounter any technical problems or bugs while
+using the website?</label>
+            <textarea name="technicalProblems" id="technicalProblems"
+rows="4"></textarea>
+        </fieldset>
+
+        <div class="section-header">
+            <h2 class="section-title">Future Visits</h2>
+        </div>
+        <fieldset>
+
+            <label>How likely are you to revisit the website in the future?
+<span class="required">*</span></label>
+            <select name="likelihoodToRevisit" id="likelihoodToRevisit"
+required>
+                <option value="">Please select</option>
+                <option value="veryLikely">Very Likely</option>
+                <option value="likely">Likely</option>
+                <option value="notSure">Not Sure</option>
+                <option value="unlikely">Unlikely</option>
+                <option value="veryUnlikely">Very Unlikely</option>
+            </select>
+
+            <label>Do you plan to explore other sections of our website during
+your next visit? <span class="required">*</span></label>
+            <select name="exploreOtherSections" id="exploreOtherSections"
+required>
+                <option value="">Please select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>How likely are you to refer a friend to our
+website?</label>
+            <textarea name="additionalQuestions" id="additionalQuestions"
+rows="4"></textarea>
+        </fieldset>
+
+        <div class="section-header">
+            <h2 class="section-title">Feedback Details</h2>
+        </div>
+        <fieldset>
+            <label>Category <span class="required">*</span></label>
+            <select name="category" id="category" required>
+                <option value="">Please select</option>
+                <option value="general">General Feedback</option>
+                <option value="bug">Report a Bug</option>
+                <option value="suggestion">Suggestion</option>
+            </select>
+
+            <label>Subject</label>
+            <input type="text" name="subject" id="subject">
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+    <div id="confirmationMessage" class="confirmation">Thank you for your
+feedback! We have received your comment.</div>
+
+    <div id="previewSection">
+        <h2>Preview</h2>
+
+        <p><strong>Name:</strong> <span id="previewName"></span></p>
+        <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+        <p><strong>Navigation:</strong> <span
+id="previewNavigation"></span></p>
+        <p><strong>Satisfaction:</strong> <span
+id="previewSatisfaction"></span></p>
+        <p><strong>First Time:</strong> <span
+id="previewFirstTime"></span></p>
+        <p><strong>Improvements:</strong> <span
+id="previewImprovements"></span></p>
+        <p><strong>Technical Problems:</strong> <span
+id="previewTechnicalProblems"></span></p>
+        <p><strong>Likelihood to Revisit:</strong> <span
+id="previewLikelihoodToRevisit"></span></p>
+        <p><strong>Explore Other Sections:</strong> <span
+id="previewExploreOtherSections"></span></p>
+        <p><strong>Additional Questions:</strong> <span
+id="previewAdditionalQuestions"></span></p>
+        <p><strong>Category:</strong> <span id="previewCategory"></span></p>
+        <p><strong>Subject:</strong> <span id="previewSubject"></span></p>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        if (name.trim() === "") {
+            alert("Please enter your name.");
+            return false;
+        }
+        if (email.trim() !== "" && !isValidEmail(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+        var requiredFields = document.querySelectorAll('[required]');
+        for (var i = 0; i < requiredFields.length; i++) {
+            if (requiredFields[i].value.trim() === "") {
+                alert("Please answer this question.");
+                requiredFields[i].focus();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isValidEmail(email) {
+        var emailRegex = /^\S+@\S+\.\S+$/;
+        return emailRegex.test(email);
+    }
+
+    function showPreview() {
+
+        var fields = ["name", "email", "navigation", "satisfaction",
+"firstTime", "improvements",
+                      "technicalProblems", "likelihoodToRevisit",
+"exploreOtherSections", "additionalQuestions",
+                      "category", "subject"];
+        fields.forEach(function(field) {
+            document.getElementById("preview" + field.charAt(0).toUpperCase() + field.slice(1))
+                .textContent = document.getElementById(field).value;
+        });
+        document.getElementById("previewSection").style.display = "block";
+    }
+
+ var inputFields = ["name", "email", "navigation", "satisfaction",
+"firstTime", "improvements",
+                       "technicalProblems", "likelihoodToRevisit",
+"exploreOtherSections", "additionalQuestions",
+                       "category", "subject"];
+    inputFields.forEach(function(field) {
+        document.getElementById(field).addEventListener("input", showPreview);
+    });
+
+    document.getElementById("feedbackForm").addEventListener("submit",
+function(event) {
+        event.preventDefault();
+        if (validateForm()) {
+            document.getElementById("confirmationMessage").style.display =
+"block";
+            document.getElementById("feedbackForm").reset();
+            document.getElementById("previewSection").style.display = "none";
+        }
+    });
+</script>
+</body>
+</html>
