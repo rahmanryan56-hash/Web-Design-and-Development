@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home - Good Health and Well-being</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header, footer {
+         background-color: #007BFF;
+         padding: 20px 0;
+         color: white;
+         text-align: center;
+      }
+      .logo {
+         width: 80px;
+         height: auto;
+         display: block;
+         margin: 0 auto;
+      }
+      nav {
+         margin-top: 20px;
+      }
+      .navbar {
+         list-style: none;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+      }
+      .navbar li {
+         margin: 0 10px;
+      }
+      .navbar a {
+         color: white;
+         text-decoration: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+         transition: background-color 0.3s;
+      }
+      .navbar a:hover,
+      .navbar .active {
+         background-color: #0056b3;
+      }
+      main {
+         padding: 20px;
+         text-align: center;
+         background-color: #90EE90;
+         padding-bottom: 30px;
+      }
+      .mission {
+         padding: 20px;
+         color: #333;
+         text-align: center;
+         border-radius: 10px;
+         margin: 20px auto;
+
+         max-width: 800px;
+         background-color: #fff;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .mission h1 {
+         color: #007BFF;
+         padding: 10px;
+         border-radius: 5px;
+         margin-top: 0;
+      }
+      .mission p {
+         padding: 10px;
+      }
+      .mission img {
+         max-width: 80%;
+         margin-top: 20px;
+         border-radius: 5px;
+      }
+      .link-container {
+         margin-top: 20px;
+      }
+      .link-container a {
+         display: inline-block;
+         margin: 10px;
+         padding: 10px 20px;
+         background-color: #f0f0f0;
+         color: #007BFF;
+         border-radius: 5px;
+         text-decoration: none;
+         transition: background-color 0.3s;
+      }
+      .link-container a:hover {
+         background-color: #007BFF;
+         color: white;
+      }
+      footer {
+         background-color: #007BFF;
+         color: white;
+         text-align: center;
+         padding: 10px 0;
+         width: 100%;
+      }
+   </style>
+</head>
+<body>
+   <header>
+       <img src="images/img2.jpg" alt="Website Logo" class="logo">
+       <nav>
+           <ul class="navbar">
+               <li><a href="#home" class="active">Home</a></li>
+               <li><a href="#gallery">Gallery</a></li>
+               <li><a href="#shop">Shop</a></li>
+               <li><a href="#profile">User Profile</a></li>
+               <li><a href="#feedback">Feedback</a></li>
+               <li><a href="#sitemap">Sitemap</a></li>
+           </ul>
+       </nav>
+
+   </header>
+   <main>
+       <section id="home" class="mission">
+           <h1>Welcome to Our Initiative for Good Health and Well-being</h1>
+           <p>This website is dedicated to promoting well-being for all at all ages, in line with the United Nations Sustainable Development
+Goals. At the core of what we do, we think that promoting well-being is
+an essential human right, instead of just an objective. With a wide
+range of programmes, materials, and cooperative efforts, we work to
+enable people and communities all around the world to live wholesome,
+happy lives. Our commitment to tackling the interrelated issues of
+poverty, inequality, degradation of the environment, and other related
+concerns is demonstrated by our alignment of our mission with the
+United Nations Sustainable Development Goals. Let's work together to
+create a future in which everyone, from all backgrounds and situations,
+has the chance to prosper.</p>
+           <img src="images/img1.jpg" alt="Image desc">
+       </section>
+       <section id="gallery" class="links">
+           <h2>Explore Our Site</h2>
+           <div class="link-container">
+               <a href="#gallery">Gallery</a>
+               <a href="#shop">Shop</a>
+               <a href="#profile">Your Profile</a>
+               <a href="#feedback">Feedback</a>
+           </div>
+       </section>
+   </main>
+   <footer>
+       <p>&copy; 2024 Good Health Initiative</p>
+   </footer>
+   <script>
+       document.addEventListener('DOMContentLoaded', function () {
+           const links = document.querySelectorAll('.navbar a');
+           for (const link of links) {
+               link.addEventListener('click', smoothScroll);
+           }
+
+           function smoothScroll(e) {
+               e.preventDefault();
+               const targetId = this.getAttribute('href').substring(1);
+               const targetElement = document.getElementById(targetId);
+               const distanceToTop =
+targetElement.getBoundingClientRect().top;
+               const offset = 100;
+               const totalScrollDistance = distanceToTop - offset;
+               const duration = 1000;
+               let startTime = null;
+
+               function scrollAnimation(currentTime) {
+                   if (startTime === null) startTime = currentTime;
+                   const elapsedTime = currentTime - startTime;
+                   const scrollAmount = easeInOut(elapsedTime,
+totalScrollDistance, duration);
+                   window.scrollTo(0, totalScrollDistance -
+scrollAmount);
+
+                   if (elapsedTime < duration)
+requestAnimationFrame(scrollAnimation);
+               }
+
+               function easeInOut(t, b, c, d) {
+                   t /= d / 2;
+                   if (t < 1) return c / 2 * t * t * t + b;
+                   t -= 2;
+                   return c / 2 * (t * t * t + 2) + b;
+               }
+
+               requestAnimationFrame(scrollAnimation);
+           }
+       });
+   </script>
+</body>
+</html>
