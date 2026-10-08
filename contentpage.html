@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhancing Physical Fitness for Optimal Health and Well-being</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #e6f7e9;
+      position: relative;
+
+    }
+    header, footer {
+      background-color: #2196f3;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .corner-image {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-image: url('images/img4.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      filter: opacity(0.8);
+      z-index: 1;
+    }
+    .top-left {
+      top: 10px;
+      left: 10px;
+    }
+    .top-right {
+      top: 10px;
+      right: 10px;
+    }
+    .bottom-left {
+      bottom: 10px;
+      left: 10px;
+    }
+    .bottom-right {
+      bottom: 10px;
+      right: 10px;
+    }
+    section {
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .section-content {
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .text-box {
+      border: 2px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+
+      display: block;
+      margin: 0 auto;
+      border-radius: 5px;
+      max-height: 300px;
+    }
+    .section-content p {
+      font-style: italic;
+    }
+    .description {
+      margin-top: 20px;
+    }
+
+    #goToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      font-size: 16px;
+      background-color: #2196f3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+    #goToTopBtn:hover {
+      background-color: #0b7dda;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Enhancing Physical Fitness for Good Health and Well-being</h1>
+    <div class="corner-image top-left"></div>
+    <div class="corner-image top-right"></div>
+  </header>
+
+  <section>
+    <h2>Content Section</h2>
+    <div class="PhysicalFitness">
+      <img src="images/img3.jpg" alt="Physical Fitness Image">
+    </div>
+    <div class="description">
+      <div class="text-box">
+        <p>In today's fast-paced world, prioritizing physical fitness is
+crucial for maintaining overall health and well-being. This content page
+delves into various aspects of physical fitness, offering insights, tips, and
+techniques to help you embark on a journey towards a healthier lifestyle.</p>
+        <p>Physical fitness encompasses more than just the absence of disease
+or physical weakness. It involves the ability to perform daily tasks with
+vigor and alertness, without undue fatigue, and with ample energy to enjoy
+leisure-time pursuits and meet unforeseen emergencies.</p>
+        <p>An individual's level of physical fitness can be influenced by various factors, including genetics, lifestyle choices, and environmental
+
+factors. While genetics may play a role in predisposing individuals to certain
+physical traits, lifestyle choices such as regular exercise, proper nutrition,
+adequate sleep, and stress management can significantly impact one's overall
+fitness level.</p>
+        <p>Furthermore, physical fitness is not a static attribute but rather
+a dynamic and ongoing process that requires regular maintenance and
+adaptation. It involves a combination of cardiovascular endurance, muscular
+strength, flexibility, and body composition, all of which interact to
+determine an individual's overall fitness level.</p>
+        <p>In conclusion, prioritizing physical fitness is essential for
+achieving good health and well-being. By incorporating regular exercise,
+proper nutrition, adequate rest, and stress management into your lifestyle,
+you can enhance your overall quality of life and reduce the risk of chronic
+diseases. Remember, physical fitness is not just a goal to achieve but a
+journey to maintain lifelong health and vitality.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 - Health and Well-being Physical Fitness Content Page</p>
+    <div class="corner-image bottom-left"></div>
+    <div class="corner-image bottom-right"></div>
+  </footer>
+
+  <button onclick="goToTop()" id="goToTopBtn" title="Go to top">Top</button>
+
+  <script>
+    function goToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop >
+20) {
+        document.getElementById("goToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("goToTopBtn").style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
